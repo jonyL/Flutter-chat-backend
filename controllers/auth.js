@@ -87,14 +87,14 @@ const renewToken = async (req, res = response) => {
     const uid = req.uid;
 
      //Generar el nuevo WJT
-     const newToken = await generarJWT(uid); 
+     const token = await generarJWT(uid); 
      
-     const usuarioDB = await Usuario.findById({_id: uid});
+     const usuario = await Usuario.findById({_id: uid});
      
     res.json({
         ok:true,
-        usuarioDB,
-        newToken                      
+        usuario,
+        token                      
     });
 }
 
